@@ -21,11 +21,11 @@ export default {
 
 .main-container {
   width: 500px;
-  
   margin-left: auto;
   margin-right: auto;
   background-color: #D8DEF6;
   border-radius: 10px;
+  padding-bottom: 10px;
 }
 
 h1 {

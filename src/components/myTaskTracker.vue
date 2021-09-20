@@ -1,12 +1,17 @@
 <template>
     <div>
+      <addTodo 
+      @add-todo="addTodo"
+      />
         <ul>
             <li
-            v-for="(todo, index) in todos"
-            :key="index"
+            v-for="(todo, i) in todos"
+            :key="i"
+            :index="i"
             >
                 <taskItem 
-                :todos="todos"
+                :todo="todo"
+                v-on:remove-todo="removeTodo"
                 />
             </li>
         </ul>
@@ -15,11 +20,12 @@
 
 <script>
 import taskItem from './taskItem.vue'
+import addTodo from './addTodo.vue'
 
 export default {
   name: 'myTaskTracker',
   components: {
-    taskItem
+    taskItem, addTodo
   },
   data() {
     return {
@@ -29,6 +35,23 @@ export default {
         {id: 3, title: 'Наслаждаться созданным приложением', completed: false}
       ]
     }
+  },
+  methods: {
+    removeTodo(id) {
+      this.todos = this.todos.filter(t => t.id !== id)
+    },
+    addTodo(todo) {
+      this.todos.push(todo )
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+li {
+  margin-bottom: 10px;
+  margin-right: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+</style>
