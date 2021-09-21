@@ -2,7 +2,7 @@
   <div>
     <div class="edit-group" v-if="!toEdit">
       {{ index + 1 }})
-      <input type="checkbox" class="pointer" v-model="todo.completed" />
+      <input type="checkbox" class="checkbox" v-model="todo.completed" />
       <span
         v-bind:class="{ done: todo.completed }"
         v-on:click="toEdit = !toEdit"
@@ -52,6 +52,7 @@ export default {
 span {
   font-family: "PT Sans", sans-serif;
   word-break: break-all;
+  margin-bottom: 4px;
 }
 
 div {
@@ -66,7 +67,7 @@ input {
   margin-right: 10px;
 }
 
-.pointer {
+.checkbox {
   cursor: pointer;
 }
 
