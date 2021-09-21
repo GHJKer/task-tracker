@@ -1,10 +1,16 @@
 <template>
     <div>
-        <span v-bind:class="{done: todo.completed}" >
+        <span v-bind:class="{done: todo.completed}" v-on:click="toEdit = !toEdit">
             <input type="checkbox" v-model="todo.completed">{{ index + 1 }}
             {{ todo.title }}
         </span>
         <div class="btn-container"><button class="btn" v-on:click="$emit('remove-todo', todo.id)">&times;</button></div>
+        <div v-if="toEdit">
+            <input type="text" v-model="titleField">
+            <div class="btn-container">
+                <button v-on:click="todo.title = titleField, toEdit = false">Edit</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -16,6 +22,12 @@ export default {
             required: true
         },
         index: Number
+    },
+    data() {
+        return {
+            toEdit: false,
+            titleField: ''
+        }
     }
 }
 </script>
