@@ -1,10 +1,10 @@
 <template>
     <div>
-        <span v-bind:class="{done: todo.completed}">
+        <span v-bind:class="{done: todo.completed}" >
             <input type="checkbox" v-model="todo.completed">{{ index + 1 }}
             {{ todo.title }}
         </span>
-        <button class="btn" v-on:click="$emit('remove-todo', todo.id)">&times;</button>
+        <div class="btn-container"><button class="btn" v-on:click="$emit('remove-todo', todo.id)">&times;</button></div>
     </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
 
 span {
     font-family: 'PT Sans', sans-serif;
+    word-break: break-all;
 }
 
 div {
@@ -45,5 +46,9 @@ input {
 
 .done {
     text-decoration: line-through;
+}
+
+.btn-container {
+    height: 25px;
 }
 </style>
