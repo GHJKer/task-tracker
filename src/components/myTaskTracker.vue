@@ -3,15 +3,16 @@
       <addTodo 
       @add-todo="addTodo"
       />
+      <hr/>
         <ul>
             <li
             v-for="(todo, i) in todos"
             :key="i"
-            :index="i"
             >
                 <taskItem 
                 :todo="todo"
                 v-on:remove-todo="removeTodo"
+                :index="i"
                 />
             </li>
         </ul>
