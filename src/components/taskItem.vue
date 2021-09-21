@@ -49,6 +49,6 @@ input {
 }
 
 .btn-container {
-    height: 25px;
+    height: 20px;
 }
 </style>
