@@ -1,12 +1,13 @@
 <template>
   <div>
     <div class="edit-group" v-if="!toEdit">
-      <input type="checkbox" v-model="todo.completed" />
+      {{ index + 1 }})
+      <input type="checkbox" class="pointer" v-model="todo.completed" />
       <span
         v-bind:class="{ done: todo.completed }"
         v-on:click="toEdit = !toEdit"
       >
-        {{ index + 1 }}
+        
         {{ todo.title }}
       </span>
     </div>
@@ -56,12 +57,17 @@ span {
 div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 10px;
   background-color: white;
 }
 
 input {
   margin-right: 10px;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .btn {
