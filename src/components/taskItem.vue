@@ -7,7 +7,6 @@
         v-bind:class="{ done: todo.completed }"
         v-on:click="toEdit = !toEdit"
       >
-        
         {{ todo.title }}
       </span>
     </div>
@@ -40,7 +39,7 @@ export default {
   data() {
     return {
       toEdit: false,
-      titleField: "",
+      titleField: this.todo.title,
     };
   },
 };
@@ -48,6 +47,10 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+
+span {
+  cursor: pointer;
+}
 
 span {
   font-family: "PT Sans", sans-serif;
